@@ -27,15 +27,15 @@ namespace AccountDemo
         {
             if (!base.holders.Contains(person))
             {
-                throw AccountException(AccountException.ACCOUNT_DOES_NOT_EXIST);
+                throw new AccountException(AccountException.ACCOUNT_DOES_NOT_EXIST);
             }
             else if (!person.IsAuthenticated)
             {
-                throw AccountException(AccountException.USER_NOT_LOGGED_IN);
+                throw new AccountException(AccountException.USER_NOT_LOGGED_IN);
             }
             else if (base.Balance < amount)
             {
-                throw AccountException(AccountException.CREDIT_LIMIT_HAS_BEEN_EXCEEDED);
+                throw new AccountException(AccountException.CREDIT_LIMIT_HAS_BEEN_EXCEEDED);
             }
             else
             {
@@ -48,7 +48,7 @@ namespace AccountDemo
 
             Balance -= INTEREST_RATE;
 
-            transactions = new List<Transactions>();
+            transactions = new List<Transaction>();
         }
         
     }
